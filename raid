@@ -1,0 +1,29 @@
+AN INTRODUCTION TO RAID ARRAYS
+
+RAID =  'Redundant Array of Independent Disks'
+
+RAID LEVELS:
+	- RAID 0 = Striped Volume
+	- RAID 1 = Mirror
+	- RAID 10 = Striped & Mirrored
+	- Other RAID levels exist also
+
+RAID can be hardware or software-based.  In our case, we will be using 'mdadm' to form a software-based RAID 1 array.
+
+NOTE: Identical disks should be used for anything other than a test array.
+
+########################################################################################################################
+
+	sudo apt-get install mdadm
+
+	sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1
+
+	sudo mkfs.ext4 /dev/md0
+
+	sudo mdadm --detail /dev/md0
+
+	sudo mdadm --detail --scan >> /etc/mdadm/mdadm.conf
+
+
+
+

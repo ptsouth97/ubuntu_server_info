@@ -1,0 +1,38 @@
+How to mount and unmount drives using BASH:
+
+1. Check to see what drives are connected:
+	sudo fdisk -l
+
+2. Note where drive is located (e.g., sda1) and then add a folder in /mnt:
+	cd /mnt
+	mkdir sda 
+
+3. Check to see what type of file system drive uses (ext4, ntfs. etc.):
+	sudo parted
+	print all
+
+4. Mount the drive to the new folder with the type you found
+	sudo mount -t ntfs /dev/sda1 /mnt/sda
+
+5. Confirm mount by displaying filesystem
+	df -l
+
+6. Navigate to mount point to view files
+	cd /mnt/sda
+	ls
+
+7. Unmount drive
+	sudo umount /dev/sda1
+
+############################################################################
+
+AN EASIER WAY...
+
+1. Get UUID of device:
+	sudo blkid
+
+2. Edit file
+	sudo vim /etc/fstab             (file system table)
+	"UUID" /mnt/sda "type" defaults 0 2
+
+3. sudo mount /dev/sda1
