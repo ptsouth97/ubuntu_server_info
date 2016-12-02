@@ -1,0 +1,9 @@
+###########
+PROCESSES #
+###########
+
+ps		shows running processes (static)
+top		shows running processes (dynamic)
+ctrl-z		stops program (similar to minimizing)
+fg  		brings program back up
+kill		kills running process

@@ -1,0 +1,15 @@
+###########
+SCRIPTING #
+###########
+
+//A simple script to demonstrate how .sh files work
+
+service ssh status
+
+service apache2 status
+
+df -h
+
+service ssh restart
+
+service apache2 restart
